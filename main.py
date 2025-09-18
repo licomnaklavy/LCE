@@ -1,32 +1,41 @@
-import os
+import re
 
-absolute_path = "."
-current_dir = "."
 
-while True:
-    print("terminal@terminal-temple " + current_dir + " $ ", end="")
-    inp = input().split()
-    command = inp[0]
-    args = inp[1:]
-    if command == "exit":
-        break
-    if command == "ls":
-        all_items = os.listdir(absolute_path)
-        folders = [item for item in all_items if os.path.isdir(absolute_path + "/" + item)]
-        print(*folders, sep="\t")
-    if command == "cd":
-        all_items = os.listdir(absolute_path)
-        if args[0] in all_items:
-            absolute_path = absolute_path + "/" + args[0]
-            current_dir = args[0]
-        elif all(char == '.' for char in args[0]) and len(args[0]) > 0:
-            temp = absolute_path
-            for i in range(len(args[0]) - 1):
-                temp = temp[0:temp.rfind("/")]
-            if temp:
-                absolute_path = temp
-                current_dir = temp[temp.rfind("/") + 1:]
-            else:
-                print("cd: no such file or directory: " + args[0])
-        else:
-            print("cd: no such file or directory: " + args[0])
+def args_handler(args):
+    pattern = r'\"([^\"]*)\"|\'([^\']*)\'|(\S+)'
+
+    matches = re.findall(pattern, args)
+    result = []
+
+    for match in matches:
+        if match[0]:
+            result.append(match[0])
+        elif match[1]:
+            result.append(match[1])
+        elif match[2]:
+            result.append(match[2])
+
+    return result
+
+def command_handler():
+    while True:
+        print(f"VFS $ ", end = "")
+        inp = input()
+        inp = inp.split(" ", 1)
+
+        command = inp[0]
+        args = ''
+        if len(inp) > 1:
+            args = inp[1]
+
+        args = args_handler(args)
+
+        if command == "exit":
+            return
+        elif command == "ls":
+            print(command, args)
+        elif command == "cd":
+            print(command, args)
+
+if __name__ == "__main__":
+    command_handler()
