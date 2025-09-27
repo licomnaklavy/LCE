@@ -1,117 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VirtualFileSystem>
-    <metadata>
-        <version>1.0</version>
-        <timestamp>2024-01-15T11:00:00</timestamp>
-        <currentDirectory>/home/user</currentDirectory>
-        <description>Virtual File System Storage - XML Format</description>
-    </metadata>
-    
-    <fileSystem>
-        <directory path="/" name="/" created="2024-01-15T00:00:00" modified="2024-01-15T11:00:00">
-            
-            <directory name="home" created="2024-01-15T10:00:00" modified="2024-01-15T10:35:00">
-                <directory name="user" created="2024-01-15T10:10:00" modified="2024-01-15T10:35:00">
-                    
-                    <directory name="documents" created="2024-01-15T10:25:00" modified="2024-01-15T10:35:00">
-                        <directory name="project" created="2024-01-15T10:30:00" modified="2024-01-15T10:35:00">
-                            <file name="main.py" size="112" created="2024-01-15T10:30:00" modified="2024-01-15T10:35:00">
-                                <content><![CDATA[print("Hello from Virtual File System!")
-def main():
-    print("This is a Python file")
-
-if __name__ == "__main__":
-    main()]]></content>
-                            </file>
-                            <file name="config.json" size="120" created="2024-01-15T10:32:00" modified="2024-01-15T10:32:00">
-                                <content><![CDATA[{
-  "version": "1.0",
-  "author": "Virtual FS User",
-  "settings": {
-    "auto_save": true,
-    "compression": false
-  }
-}]]></content>
-                            </file>
-                        </directory>
-                    </directory>
-                    
-                    <file name="notes.txt" size="120" created="2024-01-15T10:20:00" modified="2024-01-15T10:22:00">
-                        <content><![CDATA[Личные заметки:
-- Изучить Python
-- Создать проект
-- Тестировать VFS
-
-Контакты:
-- email: user@example.com
-- phone: +1234567890]]></content>
-                    </file>
-                    
-                    <file name="readme.md" size="350" created="2024-01-15T10:15:00" modified="2024-01-15T10:18:00">
-                        <content><![CDATA[# Добро пожаловать в виртуальную файловую систему!
-
-Это пример README файла.
-
-## Использование
-
-1. Загрузите файловую систему
-2. Исследуйте директории
-3. Работайте с файлами
-
-## Особенности
-- Поддержка файлов и директорий
-- Метаданные (дата создания, изменения)
-- Размер файлов
-- Иерархическая структура]]></content>
-                    </file>
-                    
-                </directory>
-            </directory>
-            
-            <!-- Системные директории -->
-            <directory name="etc" created="2024-01-15T09:30:00" modified="2024-01-15T09:50:00">
-                <directory name="config" created="2024-01-15T09:40:00" modified="2024-01-15T09:50:00">
-                    <file name="system.conf" size="85" created="2024-01-15T09:45:00" modified="2024-01-15T09:50:00">
-                        <content><![CDATA[# System configuration
-[main]
-log_level = INFO
-cache_size = 1024
-
-[network]
-timeout = 30
-retries = 3]]></content>
-                    </file>
-                </directory>
-            </directory>
-            
-            <!-- Временные файлы -->
-            <directory name="tmp" created="2024-01-15T10:50:00" modified="2024-01-15T11:00:00">
-                <directory name="cache" created="2024-01-15T10:55:00" modified="2024-01-15T11:00:00">
-                    <file name="temp_file.tmp" size="55" created="2024-01-15T11:00:00" modified="2024-01-15T11:00:00">
-                        <content><![CDATA[Временные данные для кэширования
-Можно безопасно удалить]]></content>
-                    </file>
-                </directory>
-            </directory>
-            
-            <!-- Файлы в корневой директории -->
-            <file name="readme.txt" size="450" created="2024-01-15T08:00:00" modified="2024-01-15T08:05:00">
-                <content><![CDATA[ВИРТУАЛЬНАЯ ФАЙЛОВАЯ СИСТЕМА
-===========================
-
-Это стартовое хранилище виртуальной файловой системы.
-
-Структура:
-- /home/user/ - домашняя директория пользователя
-- /etc/config/ - системные конфигурации
-- /tmp/ - временные файлы
-
-Для использования:
-1. Скопируйте этот файл как vfs_storage.xml
-2. Используйте с классом VirtualFileSystemXML
-3. Наслаждайтесь работой!]]></content>
-            </file>
-            
+<filesystem>
+    <directory name="root" path="/">
+        <directory name="bin" path="/bin">
+            <file name="bash" path="/bin/bash"/>
+            <file name="ls" path="/bin/ls"/>
+            <file name="cat" path="/bin/cat"/>
         </directory>
-    </fileSystem>
-</VirtualFileSystem>
+        
+        <directory name="etc" path="/etc">
+            <file name="passwd" path="/etc/passwd"/>
+            <file name="hosts" path="/etc/hosts"/>
+        </directory>
+        
+        <directory name="home" path="/home">
+            <directory name="user1" path="/home/user1">
+                <file name="document.txt" path="/home/user1/document.txt"/>
+                <file name="notes.md" path="/home/user1/notes.md"/>
+                <directory name="projects" path="/home/user1/projects">
+                    <file name="main.py" path="/home/user1/projects/main.py"/>
+                </directory>
+            </directory>
+            <directory name="user2" path="/home/user2">
+                <file name="readme.txt" path="/home/user2/readme.txt"/>
+            </directory>
+            <file name="base64_file.txt" path="/home/base64_file.txt" content="0J/QvtGH0LXQvNGDINGB0YDQtdC00Lgg0L3QtdC80YvRhSDQvdC1INC/0L7Qv9GD0LvRj9GA0LXQvSDQkdCU0KHQnD8K0KMg0L3QuNGFINC90LXRgiDRgdGC0L7QvyDRgdC70L7QstCwLg=="/>
+        </directory>
+        
+        <directory name="tmp" path="/tmp">
+            <file name="tempfile.tmp" path="/tmp/tempfile.tmp"/>
+        </directory>
+        
+        <file name="README" path="/README"/>
+    </directory>
+</filesystem>

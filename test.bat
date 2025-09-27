@@ -24,5 +24,9 @@ echo Test 6: Help message
 py main.py --help
 echo.
 
-echo Basic test completed!
+echo Test 7: Code Test
+py main.py -r vfs.xml -s start.txt
+echo.
+
+echo LCE test completed!
 pause

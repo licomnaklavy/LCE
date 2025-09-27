@@ -1,0 +1,18 @@
+ls
+cd jnewn
+cd home
+ls
+cd user1
+cd ..
+cd user2
+touch file.txt
+ls
+cd .
+cd file.txt
+ls
+
+exit
+
+ls jfnejkew nl eklew fw
+cd e kewlwef ;;k
+lkwefm lewlmewf
